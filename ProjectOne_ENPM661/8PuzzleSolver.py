@@ -1,9 +1,7 @@
 import numpy as np
 import copy as cp
-from datetime import datetime
 import sys
 
-print(datetime.now())
 REQUIRED_RESULT = [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
 STEPS = [] #list of 8 puzzle steps backtracked in list format []
 MATRIX_8PUZZLE_NODES = [] #List of Node objects based on the order of generation.  
@@ -180,7 +178,6 @@ def exitPuzzle(Message):
 	f_nodes.close()
 	f_nodePath.close()
 	f_nodeInfo.close()
-	print(datetime.now())
 	sys.exit()
 
 
