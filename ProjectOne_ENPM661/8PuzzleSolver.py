@@ -129,7 +129,7 @@ def printPath():
 	else:
 		for step in reversed(STEPS):
 			try:
-				coloumn_wise = ""
+				coloumn_wise = "" #To print the node in the file Coloumn Wise
 				for col in range(3):
 					coloumn_wise = coloumn_wise +" "+(" ".join([str(step[row][col]) for row in range(3)]))
 				f_nodePath.write(coloumn_wise)
@@ -145,13 +145,18 @@ def printNodesandInfo():
 	for node in MATRIX_8PUZZLE_NODES:
 		try:
 			if node.cube:
-				coloumn_wise = ""
+				coloumn_wise = "" #To print the node in the file Coloumn Wise
 				for col in range(3):
 					coloumn_wise = coloumn_wise +" "+(" ".join([str(node.cube[row][col]) for row in range(3)]))
 				f_nodes.write(coloumn_wise)
 				f_nodes.write("\n")
 
-				f_nodeInfo.write(str(MATRIX_8PUZZLE_NODES.index(node))+" "+str(MATRIX_8PUZZLE_NODES.index(node.parent))+" "+'0')
+				node_index = MATRIX_8PUZZLE_NODES.index(node)+1 #To print the index of node and parent node for nodes Info
+				if node.parent == None:
+					parent_index = 0
+				else:
+					parent_index = MATRIX_8PUZZLE_NODES.index(node.parent)+1
+				f_nodeInfo.write(str(node_index)+" "+str(parent_index)+" "+'0')
 				f_nodeInfo.write("\n")
 		except:
 			continue
